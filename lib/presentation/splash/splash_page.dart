@@ -15,26 +15,24 @@ class SplashPage extends StatelessWidget {
     )); */
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
-        print("Are you there ?");
         state.map(
           initial: (_) {
             print('initial');
-            //context.pushRoute(const SignInPageRoute());
+            Navigator.pushNamed(context, '/');
           },
           authenticated: (_) {
             print('I am authenticated');
-            //context.pushRoute(const SignInPageRoute());
+            Navigator.pushReplacementNamed(context, '/sign-in');
           },
           unauthenticated: (_) {
             print("Unauthenticated");
-            //context.pushRoute(const SignInPageRoute());
-            Navigator.pushNamed(context, '/sign-in');
+            Navigator.pushReplacementNamed(context, '/sign-in');
           },
         );
       },
       child: const Scaffold(
           body: Center(
-        child: Text("SplashScreen"),
+        child: CircularProgressIndicator(),
       )),
     );
   }

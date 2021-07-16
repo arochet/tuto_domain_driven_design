@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -13,15 +14,14 @@ part 'auth_bloc.freezed.dart';
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final IAuthFacade _authFacade;
 
-  AuthBloc(this._authFacade) : super(AuthState.initial());
+  AuthBloc(this._authFacade) : super(const AuthState.initial());
 
   @override
   Stream<AuthState> mapEventToState(
     AuthEvent event,
   ) async* {
-    event.map(
+    yield* event.map(
       authCheckRequested: (e) async* {
-        print("Ayo !");
         final userOption = await _authFacade.getSignedUser();
         yield userOption.fold(
           () => const AuthState.unauthenticated(),

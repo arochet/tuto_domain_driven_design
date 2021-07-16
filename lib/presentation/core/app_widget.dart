@@ -5,6 +5,7 @@ import 'package:tuto_domain_driven_design/injection.dart';
 
 import 'package:tuto_domain_driven_design/presentation/sign_in/sign_in.dart';
 import 'package:tuto_domain_driven_design/presentation/splash/splash_page.dart';
+import 'package:tuto_domain_driven_design/presentation/to_delete/to-delete.dart';
 
 class AppWidget extends StatelessWidget {
   @override
@@ -12,8 +13,9 @@ class AppWidget extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-            create: (context) =>
-                getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()))
+          create: (context) =>
+              getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
+        )
       ],
       child: MaterialApp(
         title: 'Note',
@@ -30,14 +32,28 @@ class AppWidget extends StatelessWidget {
             ),
           ),
         ),
-        /* initialRoute: '/',
+        initialRoute: '/',
         routes: {
-          // When navigating to the "/" route, build the FirstScreen widget.
           '/': (context) => SplashPage(),
-          // When navigating to the "/second" route, build the SecondScreen widget.
           '/sign-in': (context) => SignInPage(),
-        }, */
-        home: SplashPage(),
+          '/to-delete': (context) => ToDelete(),
+        },
+
+        /* builder: (context, widget) {
+            return Scaffold(
+              appBar: AppBar(
+                title: const Text("Test"),
+              ),
+              body: ElevatedButton(
+                onPressed: () {
+                  context
+                      .read<AuthBloc>()
+                      .add(const AuthEvent.authCheckRequested());
+                },
+                child: const Text('Fuck'),
+              ),
+            );
+          } */
       ),
     );
   }

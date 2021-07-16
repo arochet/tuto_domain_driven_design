@@ -21,7 +21,7 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  flutter:
+  flutter: 
     sdk: flutter
   another_flushbar: ^1.10.24
   auto_route: ^2.2.0
@@ -36,15 +36,20 @@ dependencies:
   get_it: ^7.1.4
   google_sign_in: ^5.0.4
   injectable: ^1.4.1
+  kt_dart: ^0.9.1
   uuid: ^3.0.4
+  json_annotation: ">=3.0.1"
 
 dev_dependencies:
+  auto_route_generator: ^2.1.0
   build_runner: null
   freezed: ^0.14.2
   injectable_generator: ^1.4.1
   lint: ^1.5.3
-  auto_route_generator: ^2.1.0
+  json_serializable: ">=3.3.0"
+  
 
+dependency_overrides:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter.

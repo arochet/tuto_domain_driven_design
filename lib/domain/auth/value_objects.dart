@@ -7,6 +7,7 @@ import 'package:tuto_domain_driven_design/domain/core/value_validators.dart';
 
 @immutable
 class EmailAddress extends ValueObject<String> {
+  @override
   final Either<ValueFailure<String>, String> value;
 
   factory EmailAddress(String input) {
@@ -18,6 +19,7 @@ class EmailAddress extends ValueObject<String> {
 
 @immutable
 class Password extends ValueObject<String> {
+  @override
   final Either<ValueFailure<String>, String> value;
 
   factory Password(String input) {
