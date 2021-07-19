@@ -16,18 +16,11 @@ class SplashPage extends StatelessWidget {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         state.map(
-          initial: (_) {
-            print('initial');
-            Navigator.pushNamed(context, '/');
-          },
-          authenticated: (_) {
-            print('I am authenticated');
-            Navigator.pushReplacementNamed(context, '/sign-in');
-          },
-          unauthenticated: (_) {
-            print("Unauthenticated");
-            Navigator.pushReplacementNamed(context, '/sign-in');
-          },
+          initial: (_) => Navigator.pushNamed(context, '/'),
+          authenticated: (_) =>
+              Navigator.pushReplacementNamed(context, '/note-overview'),
+          unauthenticated: (_) =>
+              Navigator.pushReplacementNamed(context, '/sign-in'),
         );
       },
       child: const Scaffold(

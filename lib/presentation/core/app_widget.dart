@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tuto_domain_driven_design/application/auth/auth_bloc.dart';
 import 'package:tuto_domain_driven_design/injection.dart';
+import 'package:tuto_domain_driven_design/presentation/notes/notes_overview/notes_overview_page.dart';
 
 import 'package:tuto_domain_driven_design/presentation/sign_in/sign_in.dart';
 import 'package:tuto_domain_driven_design/presentation/splash/splash_page.dart';
-import 'package:tuto_domain_driven_design/presentation/to_delete/to-delete.dart';
 
 class AppWidget extends StatelessWidget {
   @override
@@ -36,7 +36,7 @@ class AppWidget extends StatelessWidget {
         routes: {
           '/': (context) => SplashPage(),
           '/sign-in': (context) => SignInPage(),
-          '/to-delete': (context) => ToDelete(),
+          '/note-overview': (context) => NotesOverviewPage(),
         },
 
         /* builder: (context, widget) {
