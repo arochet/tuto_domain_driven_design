@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tuto_domain_driven_design/application/auth/auth_bloc.dart';
 import 'package:tuto_domain_driven_design/injection.dart';
+import 'package:tuto_domain_driven_design/presentation/notes/note_form/note_form_page.dart';
 import 'package:tuto_domain_driven_design/presentation/notes/notes_overview/notes_overview_page.dart';
 
 import 'package:tuto_domain_driven_design/presentation/sign_in/sign_in.dart';
@@ -34,26 +35,11 @@ class AppWidget extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (context) => SplashPage(),
-          '/sign-in': (context) => SignInPage(),
-          '/note-overview': (context) => NotesOverviewPage(),
+          '/': (context) => const SplashPage(),
+          '/sign-in': (context) => const SignInPage(),
+          '/note-overview': (context) => const NotesOverviewPage(),
+          '/note-form-page': (context) => const NoteFormPage(),
         },
-
-        /* builder: (context, widget) {
-            return Scaffold(
-              appBar: AppBar(
-                title: const Text("Test"),
-              ),
-              body: ElevatedButton(
-                onPressed: () {
-                  context
-                      .read<AuthBloc>()
-                      .add(const AuthEvent.authCheckRequested());
-                },
-                child: const Text('Fuck'),
-              ),
-            );
-          } */
       ),
     );
   }

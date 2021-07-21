@@ -25,28 +25,29 @@ dependencies:
     sdk: flutter
   another_flushbar: ^1.10.24
   auto_route: ^2.2.0
-  cloud_firestore: ^2.3.0
-  cupertino_icons: ^1.0.2
-  dartz: ^0.10.0-nullsafety.0
-  firebase_analytics: ^8.1.2
-  firebase_auth: ^2.0.0
-  firebase_core: ^1.3.0
-  flutter_bloc: ^7.0.0
-  freezed_annotation: ^0.14.2
-  get_it: ^7.1.4
-  google_sign_in: ^5.0.4
+  cloud_firestore: ^2.4.0
+  cupertino_icons: ^1.0.3
+  dartz: ^0.10.0-nullsafety.2
+  firebase_analytics: ^8.2.0
+  firebase_auth: ^3.0.1
+  firebase_core: ^1.4.0
+  flutter_bloc: ^7.0.1
+  flutter_hooks: ^0.18.0
+  freezed_annotation: ^0.14.2 #Ne pas toucher
+  get_it: ^7.2.0
+  google_sign_in: ^5.0.5
   injectable: ^1.4.1
   json_annotation: ">=3.0.1"
   kt_dart: ^0.9.1
-  rxdart: ^0.27.0
+  rxdart: ^0.27.1
   uuid: ^3.0.4
 
 dev_dependencies:
   auto_route_generator: ^2.1.0
   build_runner: null
-  freezed: ^0.14.2
+  freezed: ^0.14.2 #Ne pas toucher
   injectable_generator: ^1.4.1
-  json_serializable: ">=3.3.0"
+  json_serializable: ">=3.3.0" #Ne pas toucher
   lint: ^1.5.3
 
 dependency_overrides: null

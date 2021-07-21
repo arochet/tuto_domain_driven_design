@@ -9,7 +9,7 @@ extension FirestoreX on FirebaseFirestore {
     final userOption = await getIt<IAuthFacade>().getSignedUser();
     final user = userOption.getOrElse(() => throw NotAuthenticatedError);
     return FirebaseFirestore.instance
-        .collection('users')
+        .collection('user')
         .doc(user.id.getOrCrash());
   }
 }

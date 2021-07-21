@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:html';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
@@ -47,7 +46,7 @@ class NoteWatcherBloc extends Bloc<NoteWatcherEvent, NoteWatcherState> {
                 add(NoteWatcherEvent.notesReveived(failureOrNotes)));
       },
       notesReveived: (e) async* {
-        e.failureOrNotes.fold(
+        yield e.failureOrNotes.fold(
           (f) => NoteWatcherState.loadFailure(f),
           (notes) => NoteWatcherState.loadSuccess(notes),
         );

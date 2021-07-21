@@ -40,10 +40,8 @@ class _$NoteFormEventTearOff {
     );
   }
 
-  _Saved saved(Color color) {
-    return _Saved(
-      color,
-    );
+  _Saved saved() {
+    return const _Saved();
   }
 }
 
@@ -58,7 +56,7 @@ mixin _$NoteFormEvent {
     required TResult Function(String bodyStr) bodyChanged,
     required TResult Function(Color color) colorChanged,
     required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
-    required TResult Function(Color color) saved,
+    required TResult Function() saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,7 +65,7 @@ mixin _$NoteFormEvent {
     TResult Function(String bodyStr)? bodyChanged,
     TResult Function(Color color)? colorChanged,
     TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
-    TResult Function(Color color)? saved,
+    TResult Function()? saved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -179,7 +177,7 @@ class _$_Initialized implements _Initialized {
     required TResult Function(String bodyStr) bodyChanged,
     required TResult Function(Color color) colorChanged,
     required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
-    required TResult Function(Color color) saved,
+    required TResult Function() saved,
   }) {
     return initialized(initialNoteOption);
   }
@@ -191,7 +189,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(String bodyStr)? bodyChanged,
     TResult Function(Color color)? colorChanged,
     TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
-    TResult Function(Color color)? saved,
+    TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (initialized != null) {
@@ -306,7 +304,7 @@ class _$_BodyChanged implements _BodyChanged {
     required TResult Function(String bodyStr) bodyChanged,
     required TResult Function(Color color) colorChanged,
     required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
-    required TResult Function(Color color) saved,
+    required TResult Function() saved,
   }) {
     return bodyChanged(bodyStr);
   }
@@ -318,7 +316,7 @@ class _$_BodyChanged implements _BodyChanged {
     TResult Function(String bodyStr)? bodyChanged,
     TResult Function(Color color)? colorChanged,
     TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
-    TResult Function(Color color)? saved,
+    TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (bodyChanged != null) {
@@ -434,7 +432,7 @@ class _$_ColorChanged implements _ColorChanged {
     required TResult Function(String bodyStr) bodyChanged,
     required TResult Function(Color color) colorChanged,
     required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
-    required TResult Function(Color color) saved,
+    required TResult Function() saved,
   }) {
     return colorChanged(color);
   }
@@ -446,7 +444,7 @@ class _$_ColorChanged implements _ColorChanged {
     TResult Function(String bodyStr)? bodyChanged,
     TResult Function(Color color)? colorChanged,
     TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
-    TResult Function(Color color)? saved,
+    TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (colorChanged != null) {
@@ -562,7 +560,7 @@ class _$_TodosChanged implements _TodosChanged {
     required TResult Function(String bodyStr) bodyChanged,
     required TResult Function(Color color) colorChanged,
     required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
-    required TResult Function(Color color) saved,
+    required TResult Function() saved,
   }) {
     return todosChanged(todos);
   }
@@ -574,7 +572,7 @@ class _$_TodosChanged implements _TodosChanged {
     TResult Function(String bodyStr)? bodyChanged,
     TResult Function(Color color)? colorChanged,
     TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
-    TResult Function(Color color)? saved,
+    TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (todosChanged != null) {
@@ -626,7 +624,6 @@ abstract class _TodosChanged implements NoteFormEvent {
 abstract class _$SavedCopyWith<$Res> {
   factory _$SavedCopyWith(_Saved value, $Res Function(_Saved) then) =
       __$SavedCopyWithImpl<$Res>;
-  $Res call({Color color});
 }
 
 /// @nodoc
@@ -637,49 +634,25 @@ class __$SavedCopyWithImpl<$Res> extends _$NoteFormEventCopyWithImpl<$Res>
 
   @override
   _Saved get _value => super._value as _Saved;
-
-  @override
-  $Res call({
-    Object? color = freezed,
-  }) {
-    return _then(_Saved(
-      color == freezed
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as Color,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$_Saved implements _Saved {
-  const _$_Saved(this.color);
-
-  @override
-  final Color color;
+  const _$_Saved();
 
   @override
   String toString() {
-    return 'NoteFormEvent.saved(color: $color)';
+    return 'NoteFormEvent.saved()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _Saved &&
-            (identical(other.color, color) ||
-                const DeepCollectionEquality().equals(other.color, color)));
+    return identical(this, other) || (other is _Saved);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(color);
-
-  @JsonKey(ignore: true)
-  @override
-  _$SavedCopyWith<_Saved> get copyWith =>
-      __$SavedCopyWithImpl<_Saved>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -688,9 +661,9 @@ class _$_Saved implements _Saved {
     required TResult Function(String bodyStr) bodyChanged,
     required TResult Function(Color color) colorChanged,
     required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
-    required TResult Function(Color color) saved,
+    required TResult Function() saved,
   }) {
-    return saved(color);
+    return saved();
   }
 
   @override
@@ -700,11 +673,11 @@ class _$_Saved implements _Saved {
     TResult Function(String bodyStr)? bodyChanged,
     TResult Function(Color color)? colorChanged,
     TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
-    TResult Function(Color color)? saved,
+    TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (saved != null) {
-      return saved(color);
+      return saved();
     }
     return orElse();
   }
@@ -739,11 +712,7 @@ class _$_Saved implements _Saved {
 }
 
 abstract class _Saved implements NoteFormEvent {
-  const factory _Saved(Color color) = _$_Saved;
-
-  Color get color => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$SavedCopyWith<_Saved> get copyWith => throw _privateConstructorUsedError;
+  const factory _Saved() = _$_Saved;
 }
 
 /// @nodoc

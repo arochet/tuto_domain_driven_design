@@ -1,6 +1,7 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tuto_domain_driven_design/application/auth/auth_bloc.dart';
 import 'package:tuto_domain_driven_design/application/auth/sign_in_form/sign_in_form_bloc.dart';
 
 class SignInForm extends StatelessWidget {
@@ -24,10 +25,12 @@ class SignInForm extends StatelessWidget {
                               invalidEmailAndPasswordCombination: (_) =>
                                   'Invalid email and password conbination'))
                       .show(context);
-                },
-                    (_) => {
-                          //Todo : Navigate
-                        }));
+                }, (_) {
+                  Navigator.pushReplacementNamed(context, '/note-overview');
+                  context
+                      .read<AuthBloc>()
+                      .add(const AuthEvent.authCheckRequested());
+                }));
       },
       builder: (context, state) {
         return Form(
