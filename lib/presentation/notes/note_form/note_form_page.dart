@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tuto_domain_driven_design/application/notes/note_form/note_form_bloc.dart';
 import 'package:tuto_domain_driven_design/domain/notes/note.dart';
 import 'package:tuto_domain_driven_design/injection.dart';
+import 'package:tuto_domain_driven_design/presentation/notes/note_form/widgets/body_field_widget.dart';
+import 'package:tuto_domain_driven_design/presentation/notes/note_form/widgets/color_field_widget.dart';
 
 class NoteFormArguments {
   final Note? editedNote;
@@ -29,8 +31,8 @@ class NoteFormPage extends StatelessWidget {
       create: (context) => getIt<NoteFormBloc>()
         ..add(NoteFormEvent.initialized(optionOf(editedNote))),
       child: BlocConsumer<NoteFormBloc, NoteFormState>(
-          //listenWhen: (p, c) =>
-          //    p.saveFailureOrSuccessOption != c.saveFailureOrSuccessOption,
+          listenWhen: (p, c) =>
+              p.saveFailureOrSuccessOption != c.saveFailureOrSuccessOption,
           listener: (context, state) {
             state.saveFailureOrSuccessOption.fold(
               () => {},
@@ -131,7 +133,10 @@ class NoteFormPageScaffold extends StatelessWidget {
             autovalidateMode: AutovalidateMode.always,
             child: SingleChildScrollView(
               child: Column(
-                children: [],
+                children: [
+                  const BodyField(),
+                  const ColorField(),
+                ],
               ),
             ),
           );
