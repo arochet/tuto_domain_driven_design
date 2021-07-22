@@ -30,7 +30,7 @@ class NoteRepository implements INoteRepository {
                   .toImmutableList(),
             ))
         .handleError((e) {
-      if (e is PlatformException && e.message!.contains('permission-denied')) {
+      if (e is FirebaseException && e.message!.contains('permission-denied')) {
         return left(const NoteFailure.insufficientPermission());
       } else {
         // log.error(e.toString);
@@ -58,7 +58,7 @@ class NoteRepository implements INoteRepository {
                   .toImmutableList(),
             ))
         .handleError((e) {
-      if (e is PlatformException && e.message!.contains('permission-denied')) {
+      if (e is FirebaseException && e.message!.contains('permission-denied')) {
         return left(const NoteFailure.insufficientPermission());
       } else {
         // log.error(e.toString);
@@ -76,7 +76,7 @@ class NoteRepository implements INoteRepository {
       await userDoc.noteCollection.doc(noteDTO.id).set(noteDTO.toJson());
 
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseException catch (e) {
       if (e.message!.contains('permission-denied')) {
         return left(const NoteFailure.insufficientPermission());
       } else {
@@ -94,7 +94,7 @@ class NoteRepository implements INoteRepository {
       await userDoc.noteCollection.doc(noteDTO.id).update(noteDTO.toJson());
 
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseException catch (e) {
       if (e.message!.contains('permission-denied')) {
         return left(const NoteFailure.insufficientPermission());
       } else if (e.message!.contains('not-found')) {
@@ -114,7 +114,7 @@ class NoteRepository implements INoteRepository {
       await userDoc.noteCollection.doc(noteId).delete();
 
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseException catch (e) {
       if (e.message!.contains('permission-denied')) {
         return left(const NoteFailure.insufficientPermission());
       } else if (e.message!.contains('not-found')) {

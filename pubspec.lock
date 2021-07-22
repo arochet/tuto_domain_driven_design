@@ -175,7 +175,7 @@ packages:
       name: code_builder
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.0"
+    version: "4.1.0"
   collection:
     dependency: transitive
     description:
@@ -321,6 +321,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.18.0"
+  flutter_slidable:
+    dependency: "direct main"
+    description:
+      name: flutter_slidable
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.6.0"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -544,7 +551,7 @@ packages:
     source: hosted
     version: "1.5.0"
   provider:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: provider
       url: "https://pub.dartlang.org"
